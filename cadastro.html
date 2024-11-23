@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro/Login - Hamburgueria Nova Delícia</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Hamburgueria Nova Delícia</h1>
+        <nav>
+            <a href="index.html">Início</a>
+            <a href="cadastro.html">Cadastro/Login</a>
+            <a href="pedido.html">Finalizar Pedido</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Cadastro/Login</h1>
+
+        <!-- Formulário de Cadastro -->
+        <section id="formCadastro">
+            <h2>Cadastre-se</h2>
+            <form id="cadastroForm">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" required>
+
+                <label for="telefone">Telefone:</label>
+                <input type="tel" id="telefone" required>
+
+                <label for="endereco">Endereço:</label>
+                <input type="text" id="endereco" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" required>
+
+                <label for="senhaCadastro">Criar Senha:</label>
+                <input type="password" id="senhaCadastro" required>
+
+                <button type="submit">Cadastrar</button>
+            </form>
+        </section>
+
+        <!-- Formulário de Login -->
+        <section id="formLogin">
+            <h2>Entrar</h2>
+            <form id="loginForm">
+                <label for="emailLogin">Email:</label>
+                <input type="email" id="emailLogin" required>
+
+                <label for="senhaLogin">Senha:</label>
+                <input type="password" id="senhaLogin" required>
+
+                <button type="submit">Entrar</button>
+            </form>
+            <p id="errorMessage" style="color: red; display: none;">Email ou senha inválidos!</p>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>© 2024 Hamburgueria Nova Delícia</p>
+    </footer>
+
+    <script>
+        // Função de cadastro
+        document.getElementById('cadastroForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Impede o envio do formulário
+
+            const nome = document.getElementById('nome').value;
+            const telefone = document.getElementById('telefone').value;
+            const senha = document.getElementById('senhaCadastro').value;
+            const endereco = document.getElementById('endereco').value;
+            const email = document.getElementById('email').value;
+
+            // Verifica se os campos estão preenchidos
+            if (nome && telefone && senha && endereco && email) {
+                const usuario = { nome, telefone, senha, endereco, email };
+                localStorage.setItem('usuario', JSON.stringify(usuario));  // Armazena os dados no localStorage
+                alert('Cadastro realizado com sucesso!');
+                window.location.href = 'index.html';  // Redireciona para a página inicial
+            } else {
+                alert('Por favor, preencha todos os campos.');
+            }
+        });
+
+        // Função de login
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Impede o envio do formulário
+
+            const emailLogin = document.getElementById('emailLogin').value;
+            const senhaLogin = document.getElementById('senhaLogin').value;
+
+            const usuario = JSON.parse(localStorage.getItem('usuario'));  // Recupera os dados cadastrados
+
+            if (usuario && usuario.email === emailLogin && usuario.senha === senhaLogin) {
+                alert('Bem-vindo de volta, ' + usuario.email + '!');
+                window.location.href = 'index.html';  // Redireciona para a página inicial
+            } else {
+                document.getElementById('errorMessage').style.display = 'block';  // Exibe mensagem de erro
+            }
+        });
+    </script>
+
+    <script src="script.js"></script>
+</body>
+</html>
