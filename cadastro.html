@@ -24,19 +24,19 @@
             <form id="cadastroForm">
                 <label for="nome">Nome:</label>
                 <input type="text" id="nome" required>
-
+            
                 <label for="telefone">Telefone:</label>
                 <input type="tel" id="telefone" required>
-
+            
                 <label for="endereco">Endereço:</label>
                 <input type="text" id="endereco" required>
-
+            
                 <label for="email">Email:</label>
                 <input type="email" id="email" required>
-
+            
                 <label for="senhaCadastro">Criar Senha:</label>
                 <input type="password" id="senhaCadastro" required>
-
+            
                 <button type="submit">Cadastrar</button>
             </form>
         </section>
@@ -61,46 +61,7 @@
         <p>© 2024 Hamburgueria Nova Delícia</p>
     </footer>
 
-    <script>
-        // Função de cadastro
-        document.getElementById('cadastroForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Impede o envio do formulário
-
-            const nome = document.getElementById('nome').value;
-            const telefone = document.getElementById('telefone').value;
-            const senha = document.getElementById('senhaCadastro').value;
-            const endereco = document.getElementById('endereco').value;
-            const email = document.getElementById('email').value;
-
-            // Verifica se os campos estão preenchidos
-            if (nome && telefone && senha && endereco && email) {
-                const usuario = { nome, telefone, senha, endereco, email };
-                localStorage.setItem('usuario', JSON.stringify(usuario));  // Armazena os dados no localStorage
-                alert('Cadastro realizado com sucesso!');
-                window.location.href = 'index.html';  // Redireciona para a página inicial
-            } else {
-                alert('Por favor, preencha todos os campos.');
-            }
-        });
-
-        // Função de login
-        document.getElementById('loginForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Impede o envio do formulário
-
-            const emailLogin = document.getElementById('emailLogin').value;
-            const senhaLogin = document.getElementById('senhaLogin').value;
-
-            const usuario = JSON.parse(localStorage.getItem('usuario'));  // Recupera os dados cadastrados
-
-            if (usuario && usuario.email === emailLogin && usuario.senha === senhaLogin) {
-                alert('Bem-vindo de volta, ' + usuario.email + '!');
-                window.location.href = 'index.html';  // Redireciona para a página inicial
-            } else {
-                document.getElementById('errorMessage').style.display = 'block';  // Exibe mensagem de erro
-            }
-        });
-    </script>
-
+    <!-- Chamada para o arquivo script.js -->
     <script src="script.js"></script>
 </body>
 </html>
