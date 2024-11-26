@@ -1,3 +1,4 @@
+
 /* styles.css */
 
 body {
@@ -64,7 +65,8 @@ form input {
     border-radius: 5px;
 }
 
-form button {
+form button,
+#createAccountBtn {
     background-color: #FFA500;
     color: black;
     border: none;
@@ -75,7 +77,8 @@ form button {
     max-width: 300px;
 }
 
-form button:hover {
+form button:hover,
+#createAccountBtn:hover {
     background-color: #ffcc00;
 }
 
@@ -134,9 +137,9 @@ button {
     padding: 10px 20px;
     cursor: pointer;
     border-radius: 5px;
+    margin-bottom: 10px;
 }
 
 button:hover {
     background-color: #ffcc00;
 }
-

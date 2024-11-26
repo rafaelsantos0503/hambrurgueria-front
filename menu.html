@@ -3,39 +3,40 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Hamburgueria Nova Delícia</title>
+    <title>Menu - Hamburgueria Nova Delícia</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header></header>
+    <header>
+    </header>
     <script src="menu.js"></script>
 
     <main>
         <h2>Cardápio</h2>
-        <div class="menu-hamburguer">
+        <div id="menuItens" class="menu-hamburguer">
             <div class="item">
                 <img src="burger.jpg" alt="X Burger">
                 <h3>X Burger</h3>
                 <p>R$ 20,00</p>
-                <button onclick="adicionarAoCarrinho('X Burger', 20)">Adicionar</button>
+                <button onclick="adicionarAoCarrinho({ nome: 'X-Burger', preco: 20 })">Adicionar</button>
             </div>
             <div class="item">
                 <img src="bacon.jpg" alt="X Bacon">
                 <h3>X Bacon</h3>
                 <p>R$ 25,00</p>
-                <button onclick="adicionarAoCarrinho('X Bacon', 25)">Adicionar</button>
+                <button onclick="adicionarAoCarrinho({ nome: 'X-Bacon', preco: 25 })">Adicionar</button>
             </div>
             <div class="item">
                 <img src="salada.jpg" alt="X Salada">
                 <h3>X Salada</h3>
-                <p>R$ 22,00</p>
-                <button onclick="adicionarAoCarrinho('X Salada', 22)">Adicionar</button>
+                <p>R$ 21,00</p>
+                <button onclick="adicionarAoCarrinho({ nome: 'X-Salada', preco: 21 })">Adicionar</button>
             </div>
             <div class="item">
                 <img src="tudo.jpg" alt="X Tudo">
                 <h3>X Tudo</h3>
-                <p>R$ 30,00</p>
-                <button onclick="adicionarAoCarrinho('X Tudo', 30)">Adicionar</button>
+                <p>R$ 22,00</p>
+                <button onclick="adicionarAoCarrinho({ nome: 'X-Tudo', preco: 22 })">Adicionar</button>
             </div>
         </div>
         <button onclick="window.location.href='carrinho.html'">Ir para o Carrinho</button>
@@ -44,5 +45,7 @@
     <footer>
         <p>© 2024 Hamburgueria Nova Delícia</p>
     </footer>
+
+    <script src="menu.js"></script>
 </body>
 </html>

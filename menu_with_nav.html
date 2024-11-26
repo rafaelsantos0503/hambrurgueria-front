@@ -3,12 +3,20 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Hamburgueria Nova Delícia</title>
+    <title>Menu - Hamburgueria Nova Delícia</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header></header>
-    <script src="menu.js"></script>
+    <header>
+        <h1>Hamburgueria Nova Delícia</h1>
+        <nav>
+            <a href="cadastro_login.html">Cadastro/Login</a>
+            <a href="menu.html">Cardápio</a>
+            <a href="carrinho.html">Carrinho</a>
+            <a href="finalizar.html">Finalizar Compra</a>
+            <a href="#" onclick="logout()">Logout</a>
+        </nav>
+    </header>
 
     <main>
         <h2>Cardápio</h2>
@@ -44,5 +52,14 @@
     <footer>
         <p>© 2024 Hamburgueria Nova Delícia</p>
     </footer>
+
+    <script>
+        function logout() {
+            localStorage.clear(); // Limpa o armazenamento local
+            alert("Você foi desconectado.");
+            window.location.href = "cadastro_login.html";
+        }
+    </script>
+    <script src="menu.js"></script>
 </body>
 </html>
